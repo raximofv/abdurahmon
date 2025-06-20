@@ -1,0 +1,660 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+/* ==================== 1. Variables ==================== */
+:root {
+    --primary-color: #00bcd4; /* Asosiy ko'k-yashil rang */
+    --background-color: #1a1a2e; /* To'q ko'k fon rangi, barcha sahifalar uchun bir xil */
+    --text-color: #ffffff; /* Oq rangdagi matn */
+    --light-text-color: #cccccc; /* Ikkinchi darajali matnlar uchun ochiqroq rang */
+    --hover-color: #00e5ff; /* Hover effektlari uchun ochroq ko'k-yashil */
+    --shadow-color: rgba(0, 188, 212, 0.4); /* Soyalar uchun asosiy rangning shaffof versiyasi */
+}
+
+/* ==================== 2. Base Styles ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* reusable classes */
+.heading {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    color: var(--text-color);
+}
+
+.primary-color-span { /* Sarlavhalardagi rangli qism uchun */
+    color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background-color: transparent;
+    border-radius: 4rem;
+    font-size: 1.7rem;
+    color: var(--primary-color);
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+    border: 2px solid var(--primary-color);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 25px var(--primary-color);
+}
+
+/* ==================== 3. Header & Navigation ==================== */
+header {
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    background-color: transparent; /* Asosiy header foni butunlay olib tashlandi */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+/* Logo */
+.logo-img.custom-logo img {
+    height: 10rem;
+    width: auto;
+    object-fit: contain;
+    transition: 0.5s ease;
+    border-radius: 0.5rem;
+    filter: none; /* Filtr yo'q */
+}
+
+.logo-img.custom-logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation Links */
+nav a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+    text-shadow: none; /* Blur effekti olib tashlandi */
+    background-color: transparent; /* Har bir havola orqasidagi fon olib tashlandi */
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    text-shadow: none; /* Hoverda ham soya yo'q */
+    background-color: transparent; /* Hoverda ham fon bo'lmasin */
+}
+
+/* Language Switch */
+.lang-switch-container {
+    margin-left: 2rem;
+}
+
+.language-button {
+    background-color: var(--background-color); /* Fon rangi bilan bir xil */
+    border: 2px solid var(--primary-color);
+    border-radius: 2.5rem; /* Pill shape */
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.language-button .lang-text {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.language-button .divider {
+    color: var(--primary-color);
+    margin: 0 0.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Visual feedback for active language */
+.language-button.active .lang-text#lang-en-btn {
+    color: var(--primary-color);
+}
+.language-button:not(.active) .lang-text#lang-uz-btn {
+    color: var(--primary-color);
+}
+.language-button.active .lang-text#lang-uz-btn {
+    color: var(--text-color);
+}
+.language-button:not(.active) .lang-text#lang-en-btn {
+    color: var(--text-color);
+}
+
+.language-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.language-button:hover .lang-text,
+.language-button:hover .divider {
+    color: var(--background-color);
+}
+
+/* Mobile Menu Icon */
+.menu-icon {
+    font-size: 3rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none; /* Desktopda yashiriladi */
+    margin-left: 1.5rem;
+}
+
+/* ==================== 4. Sections Layout ==================== */
+section {
+    min-height: 100vh;
+    padding: 8rem 9% 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--background-color); /* Barcha sahifalar uchun bir xil fon */
+}
+
+/* ==================== 5. Home Section ==================== */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.home .home-content {
+    flex: 1 1 50rem;
+    text-align: left; /* Matn chap tomonga */
+}
+
+.home .home-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-color);
+}
+
+.home-content h3 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+#static-typing-word {
+    color: var(--primary-color); /* "Developer" so'zi rangi */
+}
+
+/* Cursor for static typing text */
+.typing-text-static {
+    font-size: 3.4rem;
+    font-weight: 600;
+    min-width: 20rem; /* Matn o'lchamiga qarab sozlanadi */
+    text-align: left;
+    margin: 0 0 1rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    color: var(--text-color);
+}
+
+#static-typing-word::after {
+    content: "";
+    background-color: var(--background-color);
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    border-left: 3px solid var(--primary-color);
+    right: -3px;
+    animation: cursor 0.6s infinite;
+    top: 0;
+}
+
+@keyframes cursor {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: var(--primary-color); }
+}
+
+.home-content p {
+    font-size: 1.6rem;
+    max-width: 800px;
+    margin-left: 0;
+    margin-right: auto;
+    color: var(--light-text-color);
+}
+
+.home-content .about-me-text {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 1.7rem;
+    line-height: 1.7;
+}
+
+/* Social Icons */
+.social-icons {
+    margin: 3rem 0;
+    text-align: left;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: transparent;
+    border: 0.2rem solid var(--primary-color);
+    font-size: 2.2rem;
+    border-radius: 50%;
+    margin: 0 0.75rem 0 0;
+    transition: 0.3s ease;
+    color: var(--primary-color);
+}
+
+.social-icons a:hover {
+    color: var(--background-color);
+    transform: scale(1.2) translateY(-5px);
+    background-color: var(--primary-color);
+    box-shadow: 0 0 25px var(--primary-color);
+}
+
+/* ==================== 6. Services Section ==================== */
+.services-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.services-container .service-box {
+    flex: 1 1 30rem;
+    background-color: var(--background-color); /* Fon rangi bilan bir xil */
+    padding: 3rem 2rem 4rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    border: 0.2rem solid var(--primary-color);
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.services-container .service-box:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 0 25px var(--primary-color);
+}
+
+.service-box i {
+    font-size: 5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.service-box h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.service-box p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: var(--light-text-color);
+}
+
+/* ==================== 7. Skills Section ==================== */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.skill-category {
+    background-color: var(--background-color); /* Fon rangi bilan bir xil */
+    border: 0.2rem solid var(--primary-color);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    text-align: center;
+    min-width: 30rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 0 25px var(--primary-color);
+}
+
+.skill-category h3 {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-color);
+    position: relative;
+}
+
+.skill-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+.skill-item {
+    font-size: 1.8rem;
+    padding: 1rem 1.5rem;
+    margin: 1rem auto;
+    background-color: var(--background-color); /* Fon rangi bilan bir xil */
+    border-radius: 0.8rem;
+    display: inline-block;
+    color: var(--light-text-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skill-item:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    cursor: default;
+}
+
+/* ==================== 8. Education Section ==================== */
+.education-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.education-item {
+    background-color: var(--background-color); /* Fon rangi bilan bir xil */
+    border: 0.2rem solid var(--primary-color);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    text-align: left;
+    min-width: 35rem;
+    max-width: 50rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 0 25px var(--primary-color);
+}
+
+.education-item .year {
+    font-size: 1.6rem;
+    color: var(--light-text-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.education-item .year i {
+    color: var(--primary-color);
+    margin-right: 1rem;
+    font-size: 1.8rem;
+}
+
+.education-item h3 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.education-item p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--light-text-color);
+}
+
+/* ==================== 9. Contact Section ==================== */
+.contact form {
+    max-width: 70rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: var(--background-color); /* Fon rangi bilan bir xil */
+    border-radius: 0.8rem;
+    margin: 0.7rem 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact form .input-box input {
+    width: 49%;
+}
+
+.contact form textarea {
+    resize: none;
+    height: 20rem;
+}
+
+.contact form .btn {
+    margin-top: 2rem;
+    width: 50%;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-weight: 700;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.contact form .btn:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 0 25px var(--primary-color);
+}
+
+/* ==================== 10. Footer ==================== */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background-color: var(--background-color); /* Fon rangi bilan bir xil */
+    border-top: 0.1rem solid rgba(255,255,255,0.1);
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+    color: var(--light-text-color);
+}
+
+.footer-icon-top a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem;
+    background-color: var(--primary-color);
+    border-radius: 0.8rem;
+    transition: 0.3s ease;
+}
+
+.footer-icon-top a i {
+    font-size: 2.4rem;
+    color: var(--background-color);
+}
+
+.footer-icon-top a:hover {
+    box-shadow: 0 0 20px var(--primary-color);
+    transform: translateY(-5px);
+}
+
+/* ==================== 11. Responsive Design ==================== */
+@media (max-width: 995px) {
+    header {
+        justify-content: space-between;
+        padding-right: 2rem;
+        /* Mobil menyu ochilganda headerning o'zi fon rangini oladi,
+           agar to'liq shaffof bo'lishini istasangiz buni ham transparent qiling */
+        background-color: var(--background-color);
+    }
+
+    .menu-icon {
+        display: block; /* Mobil menuni ko'rsatish */
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: var(--background-color); /* Mobil menyu ochilganda fon rangi */
+        border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
+        border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+        padding: 2rem 0;
+        display: none; /* Dastlab yashiriladi */
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    nav.active {
+        display: block; /* JavaScript orqali faollashadi */
+    }
+
+    nav a {
+        display: block;
+        font-size: 2rem;
+        margin: 1.5rem 0;
+        border-bottom: none;
+        text-shadow: none;
+        background-color: transparent; /* Mobil menyuda ham har bir havola orqasida fon bo'lmasin */
+    }
+
+    nav a:hover,
+    nav a.active {
+        background-color: transparent; /* Mobil menyuda ham hover/active fonni butunlay olib tashlandi */
+        border-radius: 0; /* Mobil menyuda ham border-radius bo'lmasin */
+        border-bottom: 3px solid var(--primary-color); /* Faqat pastki chiziq qolsin */
+        color: var(--primary-color); /* Matn rangini o'zgartirish */
+    }
+
+    .lang-switch-container {
+        margin-left: auto;
+        margin-right: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 55%;
+    }
+
+    .home {
+        flex-direction: column;
+        text-align: center; /* Kichik ekranlarda matn o'rtaga */
+        gap: 3rem;
+    }
+
+    .home .home-content {
+        order: 2; /* Content after sticker (if any) on small screens */
+        text-align: center;
+    }
+
+    .home .home-content p,
+    .home .home-content .about-me-text {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .social-icons {
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .typing-text-static {
+        text-align: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .services-container .service-box,
+    .skill-category,
+    .education-item {
+        flex: 1 1 100%; /* Kichik ekranlarda to'liq kenglik */
+        max-width: 50rem; /* Maksimal kenglik cheklovi */
+    }
+
+    .contact form .input-box input {
+        width: 100%; /* Kontakt formasi inputlari to'liq kenglik */
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .logo-img.custom-logo img {
+        height: 8rem;
+    }
+
+    .contact form .btn {
+        width: 100%;
+    }
+}
