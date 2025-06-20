@@ -33,6 +33,14 @@ body {
     color: var(--text-color);
 }
 
+/* Rasmlar uchun umumiy mobil moslashuvchanlik qoidasi */
+img {
+    max-width: 100%; /* Rasmlarning maksimal kengligini ota-ona elementiga moslashtiradi */
+    height: auto; /* Rasmlar nisbatlarini saqlab qoladi */
+    display: block; /* Ba'zi to'ldiruvchi bo'shliqlarni olib tashlash uchun */
+}
+
+
 /* reusable classes */
 .heading {
     font-size: 4rem;
@@ -74,7 +82,7 @@ header {
     left: 0;
     width: 100%;
     padding: 1rem 9%;
-    background-color: transparent; /* Asosiy header foni butunlay olib tashlandi */
+    background-color: transparent; /* Asosiy header foni butunlay olib tashlandi (desktop va mobil) */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,7 +112,7 @@ nav a {
     transition: 0.3s ease;
     border-bottom: 3px solid transparent;
     text-shadow: none; /* Blur effekti olib tashlandi */
-    background-color: transparent; /* Har bir havola orqasidagi fon olib tashlandi */
+    background-color: transparent; /* Har bir havola orqasidagi fon olib tashlandi (desktop va mobil) */
 }
 
 nav a:hover,
@@ -112,7 +120,7 @@ nav a.active {
     color: var(--primary-color);
     border-bottom: 3px solid var(--primary-color);
     text-shadow: none; /* Hoverda ham soya yo'q */
-    background-color: transparent; /* Hoverda ham fon bo'lmasin */
+    background-color: transparent; /* Hoverda ham fon bo'lmasin (desktop va mobil) */
 }
 
 /* Language Switch */
@@ -546,9 +554,8 @@ section {
     header {
         justify-content: space-between;
         padding-right: 2rem;
-        /* Mobil menyu ochilganda headerning o'zi fon rangini oladi,
-           agar to'liq shaffof bo'lishini istasangiz buni ham transparent qiling */
-        background-color: var(--background-color);
+        /* Mobil menyu ochilganda headerning o'zi ham shaffof bo'lsin */
+        background-color: transparent;
     }
 
     .menu-icon {
@@ -560,7 +567,7 @@ section {
         top: 100%;
         right: 0;
         width: 100%;
-        background-color: var(--background-color); /* Mobil menyu ochilganda fon rangi */
+        background-color: transparent; /* MOBIL MENYU OCHILGANDA TO'LIQ SHAFFOF FON */
         border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
         border-bottom-left-radius: 2rem;
         border-bottom-right-radius: 2rem;
@@ -572,6 +579,7 @@ section {
 
     nav.active {
         display: block; /* JavaScript orqali faollashadi */
+        /* background-color: var(--background-color); Bu qatorni o'chirish kerak edi! */
     }
 
     nav a {
