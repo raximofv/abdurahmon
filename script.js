@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Static Typing Text (no animation, just cursor blink)
     // The cursor animation is handled purely by CSS on #static-typing-word::after.
 
-    // ScrollReveal for animations - Animatsiya tezligi sekinlashtirildi
+    // ScrollReveal for animations - Animatsiya tezligi ozgina tezlashtirildi
     ScrollReveal({
         reset: true,
         distance: '80px',
-        duration: 1800, // Davomiylik oshirildi (sekinroq)
-        delay: 200,    // Kechikish oshirildi (sekinroq)
+        duration: 1500, // Davomiylik ozgina tezlashtirildi (oldin 1800 edi)
+        delay: 150,    // Kechikish ozgina tezlashtirildi (oldin 200 edi)
         easing: 'cubic-bezier(.68,-0.55,.27,1.55)' // Jozibaliroq animatsiya egri chizig'i
     });
 
