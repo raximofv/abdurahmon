@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Apply animations to elements
     ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-    ScrollReveal().reveal('.services-container, .skills-container, .education-container, .contact form', { origin: 'bottom' });
+    ScrollReveal().reveal('.projects-container, .skills-container, .education-container, .contact form', { origin: 'bottom' });
     ScrollReveal().reveal('.home-content h1, .home-content p', { origin: 'left' });
     ScrollReveal().reveal('.social-icons, .btn', { origin: 'left' });
 
