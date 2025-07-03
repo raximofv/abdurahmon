@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ScrollReveal({
         reset: true,
         distance: '50px',
-        duration: 700,
-        delay: 70,
+        duration: 600,
+        delay: 50,
         easing: 'cubic-bezier(.68,-0.55,.27,1.55)'
     });
 
@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!isDeleting && charIndex < currentWord.length) {
             charIndex++;
-            typeWriterTimeout = setTimeout(typeWriter, 80);
+            typeWriterTimeout = setTimeout(typeWriter, 70);
         } else if (isDeleting && charIndex > 0) {
             charIndex--;
-            typeWriterTimeout = setTimeout(typeWriter, 30);
+            typeWriterTimeout = setTimeout(typeWriter, 25);
         } else {
             isDeleting = !isDeleting;
             wordIndex = !isDeleting ? (wordIndex + 1) % currentLanguageWords.length : wordIndex;
-            typeWriterTimeout = setTimeout(typeWriter, 700);
+            typeWriterTimeout = setTimeout(typeWriter, 600);
         }
     }
 
