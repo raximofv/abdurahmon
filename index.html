@@ -4,28 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap">
     <link rel="stylesheet" href="style.css">
-    <title data-en="Portfolio Website - Abdurahmon Rakhimov" data-uz="Portfolio Vebsayti - Abdurahmon Rahimov">Portfolio Website - Abdurahmon Rakhimov</title>
+    <title data-en="Portfolio Website - Abdurahmon Rakhimov" data-ru="Сайт-портфолио - Абдурахмон Рахимов">Portfolio Website - Abdurahmon Rakhimov</title>
 </head>
 <body>
+    <div class="custom-cursor-circle"></div>
+    <div class="custom-cursor-dot"></div>
+
     <header>
         <a href="#home" class="logo-img custom-logo">
             <img src="logoyim.jpg" alt="Abdurahmon's Logo">
         </a>
 
         <nav id="navbar">
-            <a href="#home" class="active" data-en="Home" data-uz="Bosh Sahifa">Home</a>
-            <a href="#projects" data-en="Projects" data-uz="Loyihalar">Projects</a>
-            <a href="#skills" data-en="Skills" data-uz="Ko'nikmalar">Skills</a>
-            <a href="#education" data-en="Education" data-uz="Ta'lim">Education</a>
-            <a href="#contact" data-en="Contact" data-uz="Aloqa">Aloqa</a>
+            <a href="#home" class="active" data-en="Home" data-ru="Главная">Home</a>
+            <a href="#projects" data-en="Projects" data-ru="Проекты">Projects</a>
+            <a href="#skills" data-en="Skills" data-ru="Навыки">Skills</a>
+            <a href="#education" data-en="Education" data-ru="Образование">Education</a>
+            <a href="#contact" data-en="Contact" data-ru="Контакты">Aloqa</a>
         </nav>
-        <div class="lang-switch-container">
-            <button id="language-toggle" class="language-button">
-                <span class="lang-text" id="lang-en-btn">EN</span>
-                <span class="divider">/</span>
-                <span class="lang-text" id="lang-uz-btn">UZ</span>
-            </button>
+        <div class="header-controls">
+            <div class="lang-switch-container">
+                <button id="language-toggle" class="language-button">
+                    <span class="lang-text" id="lang-en-btn">EN</span>
+                    <span class="divider">/</span>
+                    <span class="lang-text" id="lang-ru-btn">RU</span>
+                </button>
+            </div>
         </div>
         <div id="menu-icon" class="menu-icon">
             <i class="fas fa-bars"></i>
@@ -34,51 +40,52 @@
 
     <section class="home" id="home">
         <div class="home-content">
-            <h1 data-en="Hi, It's <span class='primary-color-span'>Abdurahmon Rakhimov</span>" data-uz="Salom, Bu <span class='primary-color-span'>Abdurahmon Rahimov</span>">Hi, It's <span class='primary-color-span'>Abdurahmon Rakhimov</span></h1>
-            <h3 class="typing-text-static">
-                <span id="base-typing-text-prefix" data-en-prefix="I am a " data-uz-prefix="Men ">I am a </span>
-                <span id="static-typing-word" class="primary-color-span" data-en-word="Developer" data-uz-word="Dasturchi">Developer</span>
+            <h1 data-en="Good day, I am <span class='primary-color-span'>Abdurahmon Rakhimov</span>" data-ru="Добрый день, я <span class='primary-color-span'>Абдурахмон Рахимов</span>">Good day, I am <span class='primary-color-span'>Abdurahmon Rakhimov</span></h1>
+            
+            <h3 class="typing-text-animated-container">
+                <span id="animated-typing-word" class="primary-color-span"></span>
             </h3>
-            <p data-en="I create professional and responsive websites for individuals and companies, bringing ideas to life with modern web technologies and a keen eye for design." data-uz="Men shaxslar va kompaniyalar uchun professional va responsiv veb-saytlar yarataman, zamonaviy veb-texnologiyalar va dizaynga e'tibor bergan holda g'oyalarni hayotga tatbiq etaman.">I create professional and responsive websites for individuals and companies, bringing ideas to life with modern web technologies and a keen eye for design.</p>
-            <p class="about-me-text" data-en="I am a developer and I create presentations and web sites for people and companies." data-uz="Men dasturchiman va odamlar hamda kompaniyalar uchun taqdimotlar va veb-saytlar yarataman.">I am a developer and I create presentations and web sites for people and companies.</p>
+            
+            <p class="about-me-text" data-en="As a dedicated Full Stack Developer, I specialize in crafting bespoke, high-performance websites and applications for a diverse range of clients, from individual entrepreneurs to established companies. My expertise spans both front-end and back-end technologies, allowing me to build robust, scalable, and user-friendly digital solutions that not only meet but exceed expectations. I am passionate about transforming innovative ideas into tangible, impactful web experiences." data-ru="Как преданный Full Stack разработчик, я специализируюсь на создании высокопроизводительных веб-сайтов и приложений для широкого круга клиентов, от индивидуальных предпринимателей до крупных компаний. Мой опыт охватывает как фронтенд, так и бэкенд технологии, что позволяет мне создавать надежные, масштабируемые и удобные цифровые решения, которые не только соответствуют, но и превосходят ожидания. Я увлечен превращением инновационных идей в ощутимые, эффективные веб-проекты.">I am full stack developer, I build special web-sites for customers and companies...</p>
+            
             <div class="social-icons">
                 <a href="https://github.com/raximofv" target="_blank"><i class="fa-brands fa-github"></i></a>
                 <a href="https://t.me/davranovich1" target="_blank"><i class="fa-brands fa-telegram"></i></a>
                 <a href="mailto:abdurahmon29102010@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <a href="#contact" class="btn" data-en="Contact" data-uz="Aloqa">Contact</a>
+            <a href="#contact" class="btn" data-en="Contact" data-ru="Контакты">Contact</a>
         </div>
-        </section>
+    </section>
 
     <section class="projects" id="projects">
-        <h2 class="heading" data-en="My <span class='primary-color-span'>Projects</span>" data-uz="Mening <span class='primary-color-span'>Loyihalarim</span>">My <span class='primary-color-span'>Projects</span></h2>
+        <h2 class="heading" data-en="My <span class='primary-color-span'>Projects</span>" data-ru="Мои <span class='primary-color-span'>Проекты</span>">My <span class='primary-color-span'>Projects</span></h2>
         <div class="projects-container">
             <div class="project-box">
                 <img src="presentatsiya.png" alt="Paris Eiffel Tower Presentation">
-                <h3 data-en="Paris Eiffel Tower Presentation" data-uz="Parij Eyfel minorasi Taqdimoti">Paris Eiffel Tower Presentation</h3>
-                <p data-en="An impressive presentation about the Eiffel Tower created using PowerPoint, showcasing its history and beauty." data-uz="Eyfel minorasi haqida PowerPoint orqali yaratilgan ta'sirchan taqdimot, uning tarixi va go'zalligini namoyish etadi.">An impressive presentation about the Eiffel Tower created using PowerPoint, showcasing its history and beauty.</p>
-                <a href="https://t.me/rakhimovss_blog/625" target="_blank" class="btn" data-en="View Full Presentation" data-uz="To'liq Taqdimotni Ko'rish">View Full Presentation</a>
+                <h3 data-en="Paris Eiffel Tower Presentation" data-ru="Презентация Эйфелевой башни в Париже">Paris Eiffel Tower Presentation</h3>
+                <p data-en="An impressive presentation about the Eiffel Tower created using PowerPoint, showcasing its history and beauty." data-ru="Впечатляющая презентация об Эйфелевой башне, созданная с помощью PowerPoint, демонстрирующая ее историю и красоту.">An impressive presentation about the Eiffel Tower created using PowerPoint, showcasing its history and beauty.</p>
+                <a href="https://t.me/rakhimovss_blog/625" target="_blank" class="btn" data-en="View Full Presentation" data-ru="Посмотреть полную презентацию">View Full Presentation</a>
             </div>
             <div class="project-box">
                 <img src="web-app.png" alt="Budget Tracker Web App">
-                <h3 data-en="Budget Tracker Web App" data-uz="Budjet Kuzatuvchi Veb-Ilova">Budget Tracker Web App</h3>
-                <p data-en="A web application for tracking your budget, built with HTML, CSS, and JavaScript. Manage your income and expenses easily." data-uz="Budjetingizni kuzatish uchun HTML, CSS va JavaScript yordamida yaratilgan veb-ilova. Daromad va xarajatlaringizni oson boshqaring.">A web application for tracking your budget, built with HTML, CSS, and JavaScript. Manage your income and expenses easily.</p>
-                <a href="https://budjet-sarhisobi.vercel.app/" target="_blank" class="btn" data-en="View Live Project" data-uz="Loyihani Ko'rish">View Live Project</a>
+                <h3 data-en="Budget Tracker Web App" data-ru="Веб-приложение для отслеживания бюджета">Budget Tracker Web App</h3>
+                <p data-en="A web application for tracking your budget, built with HTML, CSS, and JavaScript. Manage your income and expenses easily." data-ru="Веб-приложение для отслеживания вашего бюджета, созданное с использованием HTML, CSS и JavaScript. Легко управляйте своими доходами и расходами.">A web application for tracking your budget, built with HTML, CSS, and JavaScript. Manage your income and expenses easily.</p>
+                <a href="https://budjet-sarhisobi.vercel.app/" target="_blank" class="btn" data-en="View Live Project" data-ru="Посмотреть проект">View Live Project</a>
             </div>
             <div class="project-box">
                 <img src="web-game.png" alt="Puzzle Web Game">
-                <h3 data-en="Puzzle Web Game" data-uz="Boshqotirma Veb-O'yin">Puzzle Web Game</h3>
-                <p data-en="An engaging puzzle web game developed using HTML, CSS, and JavaScript, offering a fun and challenging experience." data-uz="HTML, CSS va JavaScript yordamida yaratilgan qiziqarli boshqotirma veb-o'yini, qiziqarli va qiyin tajriba taqdim etadi.">An engaging puzzle web game developed using HTML, CSS, and JavaScript, offering a fun and challenging experience.</p>
-                <a href="https://boshqotirma.vercel.app/" target="_blank" class="btn" data-en="Play Game" data-uz="O'yinni O'ynash">Play Game</a>
+                <h3 data-en="Puzzle Web Game" data-ru="Веб-игра-головоломка">Puzzle Web Game</h3>
+                <p data-en="An engaging puzzle web game developed using HTML, CSS, and JavaScript, offering a fun and challenging experience." data-ru="Увлекательная веб-игра-головоломка, разработанная с использованием HTML, CSS и JavaScript, предлагающая веселый и сложный опыт.">An engaging puzzle web game developed using HTML, CSS and JavaScript, offering a fun and challenging experience.</p>
+                <a href="https://boshqotirma.vercel.app/" target="_blank" class="btn" data-en="Play Game" data-ru="Играть">Play Game</a>
             </div>
         </div>
     </section>
 
     <section class="skills" id="skills">
-        <h2 class="heading" data-en="My <span class='primary-color-span'>Skills</span>" data-uz="Mening <span class='primary-color-span'>Ko'nikmalarim</span>">My <span class='primary-color-span'>Skills</span></h2>
+        <h2 class="heading" data-en="My <span class='primary-color-span'>Skills</span>" data-ru="Мои <span class='primary-color-span'>Навыки</span>">My <span class='primary-color-span'>Skills</span></h2>
         <div class="skills-container">
             <div class="skill-category">
-                <h3 data-en="Frontend" data-uz="Frontend">Frontend</h3>
+                <h3 data-en="Frontend" data-ru="Фронтенд">Frontend</h3>
                 <div class="skill-item">HTML</div>
                 <div class="skill-item">CSS</div>
                 <div class="skill-item">JavaScript</div>
@@ -86,7 +93,7 @@
                 <div class="skill-item">Vue.js</div>
             </div>
             <div class="skill-category">
-                <h3 data-en="Backend" data-uz="Backend">Backend</h3>
+                <h3 data-en="Backend" data-ru="Бэкенд">Backend</h3>
                 <div class="skill-item">Node.js</div>
                 <div class="skill-item">Python</div>
                 <div class="skill-item">PHP</div>
@@ -94,52 +101,52 @@
                 <div class="skill-item">MongoDB</div>
             </div>
             <div class="skill-category">
-                <h3 data-en="Tools & Others" data-uz="Vositalar va Boshqalar">Tools & Others</h3>
-                <div class="skill-item">Git</div>
-                <div class="skill-item">VS Code</div>
-                <div class="skill-item">Figma</div>
-                <div class="skill-item" data-en="Responsive Design" data-uz="Responsiv Dizayn">Responsive Design</div>
+                <h3 data-en="Tools & Others" data-ru="Инструменты и другое">Tools & Others</h3>
+                <div class="skill-item" data-en="Git" data-ru="Git">Git</div>
+                <div class="skill-item" data-en="VS Code" data-ru="VS Code">VS Code</div>
+                <div class="skill-item" data-en="Figma" data-ru="Figma">Figma</div>
+                <div class="skill-item" data-en="Responsive Design" data-ru="Адаптивный дизайн">Responsive Design</div>
             </div>
         </div>
     </section>
 
     <section class="education" id="education">
-        <h2 class="heading" data-en="My <span class='primary-color-span'>Education</span>" data-uz="Mening <span class='primary-color-span'>Ta'limim</span>">My <span class='primary-color-span'>Education</span></h2>
+        <h2 class="heading" data-en="My <span class='primary-color-span'>Education</span>" data-ru="Мое <span class='primary-color-span'>Образование</span>">My <span class='primary-color-span'>Education</span></h2>
         <div class="education-container">
             <div class="education-item">
-                <div class="year"><i class="fas fa-calendar-alt"></i> <span data-en="2022 - 2025" data-uz="2022 - 2025">2022 - 2025</span></div>
-                <h3 data-en="English Language Learning" data-uz="Ingliz Tili Kurslari">English Language Learning</h3>
-                <p data-en="Ziyokir IELTS Center, Namangan city, Uzbekistan" data-uz="Ziyokir IELTS Markazi, Namangan shahri, O'zbekiston">Ziyokir IELTS Center, Namangan city, Uzbekistan</p>
-                <p data-en="Focused on improving English language proficiency for academic and professional purposes." data-uz="Akademik va professional maqsadlar uchun ingliz tili malakasini oshirishga qaratilgan.">Focused on improving English language proficiency for academic and professional purposes.</p>
+                <div class="year"><i class="fas fa-calendar-alt"></i> <span data-en="2022 - 2025" data-ru="2022 - 2025">2022 - 2025</span></div>
+                <h3 data-en="English Language Learning" data-ru="Изучение английского языка">English Language Learning</h3>
+                <p data-en="Ziyokir IELTS Center, Namangan city, Uzbekistan" data-ru="Центр IELTS Ziyokir, город Наманган, Узбекистан">Ziyokir IELTS Center, Namangan city, Uzbekistan</p>
+                <p data-en="Focused on improving English language proficiency for academic and professional purposes." data-ru="Сосредоточен на улучшении владения английским языком для академических и профессиональных целей.">Focused on improving English language proficiency for academic and professional purposes.</p>
             </div>
             <div class="education-item">
-                <div class="year"><i class="fas fa-calendar-alt"></i> <span data-en="2023 - 2025" data-uz="2023 - 2025">2023 - 2025</span></div>
-                <h3 data-en="Programming Studies" data-uz="Dasturlash Kurslari">Programming Studies</h3>
-                <p data-en="Ilmhub IT Center" data-uz="Ilmhub IT Markazi">Ilmhub IT Center</p>
-                <p data-en="Acquiring knowledge and practical skills in various programming languages including Python, Arduino, C++, and others." data-uz="Python, Arduino, C++ va boshqa dasturlash tillarida bilim va amaliy ko'nikmalarni egallash.">Acquiring knowledge and practical skills in various programming languages including Python, Arduino, C++, and others.</p>
+                <div class="year"><i class="fas fa-calendar-alt"></i> <span data-en="2023 - 2025" data-ru="2023 - 2025">2023 - 2025</span></div>
+                <h3 data-en="Programming Studies" data-ru="Изучение программирования">Programming Studies</h3>
+                <p data-en="Ilmhub IT Center" data-ru="ИТ-центр Ilmhub">Ilmhub IT Center</p>
+                <p data-en="Acquiring knowledge and practical skills in various programming languages including Python, Arduino, C++, and others." data-ru="Получение знаний и практических навыков в различных языках программирования, включая Python, Arduino, C++ и другие.">Acquiring knowledge and practical skills in various programming languages including Python, Arduino, C++, and others.</p>
             </div>
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <h2 class="heading" data-en="Contact <span class='primary-color-span'>Me</span>" data-uz="Men Bilan <span class='primary-color-span'>Bog'laning</span>">Contact <span class='primary-color-span'>Me</span></h2>
+        <h2 class="heading" data-en="Contact <span class='primary-color-span'>Me</span>" data-ru="Связаться <span class='primary-color-span'>со мной</span>">Contact <span class='primary-color-span'>Me</span></h2>
         <form id="contactForm" action="mailto:abdurahmon29102010@gmail.com" method="post" enctype="text/plain">
             <div class="input-box">
-                <input type="text" name="full_name" placeholder="Full Name" required data-en-placeholder="Full Name" data-uz-placeholder="To'liq Ism">
-                <input type="email" name="email_address" placeholder="Email Address" required data-en-placeholder="Email Address" data-uz-placeholder="Elektron Pochta">
+                <input type="text" name="full_name" placeholder="Full Name" required data-en-placeholder="Full Name" data-ru-placeholder="Полное имя">
+                <input type="email" name="email_address" placeholder="Email Address" required data-en-placeholder="Email Address" data-ru-placeholder="Адрес электронной почты">
             </div>
             <div class="input-box">
-                <input type="text" name="mobile_number" placeholder="Mobile Number (Optional)" data-en-placeholder="Mobile Number (Optional)" data-uz-placeholder="Telefon Raqami (Majburiy Emas)">
-                <input type="text" name="email_subject" placeholder="Email Subject" required data-en-placeholder="Email Subject" data-uz-placeholder="Mavzu">
+                <input type="text" name="mobile_number" placeholder="Mobile Number (Optional)" data-en-placeholder="Mobile Number (Optional)" data-ru-placeholder="Номер телефона (необязательно)">
+                <input type="text" name="email_subject" placeholder="Email Subject" required data-en-placeholder="Email Subject" data-ru-placeholder="Тема письма">
             </div>
-            <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message" required data-en-placeholder="Your Message" data-uz-placeholder="Sizning Xabaringiz"></textarea>
-            <input type="submit" value="Send Message" class="btn" data-en-value="Send Message" data-uz-value="Xabar Yuborish">
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message" required data-en-placeholder="Your Message" data-ru-placeholder="Ваше сообщение"></textarea>
+            <input type="submit" value="Send Message" class="btn" data-en-value="Send Message" data-ru-value="Отправить сообщение">
         </form>
     </section>
 
     <footer class="footer">
         <div class="footer-text">
-            <p data-en="&copy; 2025 by Abdurahmon Rakhimov | All Rights Reserved." data-uz="&copy; 2025 Abdurahmon Rahimov | Barcha huquqlar himoyalangan.">&copy; 2025 by Abdurahmon Rakhimov | All Rights Reserved.</p>
+            <p data-en="&copy; 2025 by Abdurahmon Rakhimov | All Rights Reserved." data-ru="&copy; 2025 Абдурахмон Рахимов | Все права защищены.">&copy; 2025 by Abdurahmon Rakhimov | All Rights Reserved.</p>
         </div>
         <div class="footer-icon-top">
             <a href="#home"><i class="fas fa-arrow-up"></i></a>
@@ -150,3 +157,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+    
