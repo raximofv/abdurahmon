@@ -33,7 +33,6 @@ body {
     background-color: var(--background-color);
     position: relative;
     z-index: 1;
-    transition: background-color 0.8s ease-in-out;
 }
 
 .custom-cursor-circle {
@@ -151,10 +150,8 @@ nav a.active {
     background-color: transparent;
 }
 
-.header-controls {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.lang-switch-container {
+    margin-left: 2rem;
 }
 
 .language-button {
@@ -465,8 +462,8 @@ section {
 
 .education-item h3 {
     font-size: 2.5rem;
-    color: var(--text-color);
     margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
 .education-item p {
@@ -573,39 +570,40 @@ section {
     }
 
     nav {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 0;
         right: 0;
+        width: 70%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-out;
+        border-radius: 0;
+        padding: 0;
+        display: flex; /* Always flex, hide with transform */
+    }
+
+    nav.active {
+        transform: translateX(0%);
+    }
+
+    nav a {
+        margin: 2rem 0;
         width: 100%;
-        background-color: transparent;
-        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
-        border-bottom-left-radius: 2rem;
-        border-bottom-right-radius: 2rem;
-        padding: 2rem 0;
-        display: none;
+        padding: 1rem 0;
+        border-bottom: none;
         text-align: center;
         transition: all 0.3s ease;
     }
 
-    nav.active {
-        display: block;
-    }
-
-    nav a {
-        display: block;
-        font-size: 2rem;
-        margin: 1.5rem 0;
-        border-bottom: none;
-        text-shadow: none;
-        background-color: transparent;
-    }
-
     nav a:hover,
     nav a.active {
-        background-color: transparent;
-        border-radius: 0;
-        border-bottom: 3px solid var(--primary-color);
-        color: var(--primary-color);
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 0.5rem;
+        border-bottom: none; /* Ensure no bottom border on links themselves */
     }
 
     .lang-switch-container {
@@ -641,18 +639,27 @@ section {
         text-align: center;
     }
 
+    .home .home-content h1 {
+        font-size: 4.5rem;
+    }
+
+    .typing-text-animated-container {
+        font-size: 2.5rem;
+        min-width: unset;
+        text-align: center;
+        margin: 0 auto;
+    }
+
     .home .home-content p,
     .home .home-content .about-me-text {
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        font-size: 1.4rem;
     }
 
-    .typing-text-animated-container {
+    .social-icons {
         text-align: center;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .projects-container .project-box,
