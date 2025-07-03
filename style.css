@@ -575,7 +575,7 @@ section {
         right: 0;
         width: 70%;
         height: 100vh;
-        background-color: rgba(255, 255, 255, 0.98);
+        background-color: rgba(255, 255, 255, 0.9); /* Shaffofroq fon */
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -583,7 +583,7 @@ section {
         transition: transform 0.4s ease-out;
         border-radius: 0;
         padding: 0;
-        display: flex; /* Always flex, hide with transform */
+        display: flex;
     }
 
     nav.active {
@@ -603,7 +603,7 @@ section {
     nav a.active {
         background-color: rgba(0, 0, 0, 0.05);
         border-radius: 0.5rem;
-        border-bottom: none; /* Ensure no bottom border on links themselves */
+        border-bottom: none;
     }
 
     .lang-switch-container {
