@@ -6,10 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
         menuIcon.addEventListener('click', () => {
             navbar.classList.toggle('active');
             menuIcon.querySelector('i').classList.toggle('fa-bars');
-            menuIcon.querySelector('i').classList.toggle('fa-times'); // Change icon to 'X'
+            menuIcon.querySelector('i').classList.toggle('fa-times');
         });
 
-        // Close navbar when a link is clicked (for mobile)
         navbar.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navbar.classList.remove('active');
@@ -19,89 +18,141 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Static Typing Text (no animation, just cursor blink)
-    // The cursor animation is handled purely by CSS on #static-typing-word::after.
-
-    // ScrollReveal for animations - Animatsiya tezligi ozgina tezlashtirildi
     ScrollReveal({
         reset: true,
-        distance: '80px',
-        duration: 1500, // Davomiylik ozgina tezlashtirildi (oldin 1800 edi)
-        delay: 150,    // Kechikish ozgina tezlashtirildi (oldin 200 edi)
-        easing: 'cubic-bezier(.68,-0.55,.27,1.55)' // Jozibaliroq animatsiya egri chizig'i
+        distance: '50px',
+        duration: 700,
+        delay: 70,
+        easing: 'cubic-bezier(.68,-0.55,.27,1.55)'
     });
 
-    // Apply animations to elements
-    ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-    ScrollReveal().reveal('.projects-container, .skills-container, .education-container, .contact form', { origin: 'bottom' });
     ScrollReveal().reveal('.home-content h1, .home-content p', { origin: 'left' });
-    ScrollReveal().reveal('.social-icons, .btn', { origin: 'left' });
+    ScrollReveal().reveal('.typing-text-animated-container', { origin: 'left', delay: 150 });
+    ScrollReveal().reveal('.social-icons, .btn', { origin: 'left', delay: 250 });
+    ScrollReveal().reveal('.heading', { origin: 'top' });
+    ScrollReveal().reveal('.projects-container, .skills-container, .education-container, .contact form', { origin: 'bottom' });
 
+    const animatedTypingWord = document.getElementById('animated-typing-word');
+    const wordsRu = ["Создаю веб-сайты", "Full stack разработчик"];
+    const wordsEn = ["I build web-sites", "Full stack developer"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let currentLanguageWords = wordsEn;
+    let typeWriterTimeout;
 
-    // Language Toggle
-    const languageToggle = document.getElementById('language-toggle');
-    const elementsToTranslate = document.querySelectorAll('[data-en], [data-uz], [data-en-placeholder], [data-uz-placeholder], [data-en-value], [data-uz-value], [data-en-prefix], [data-uz-prefix], [data-en-word], [data-uz-word]');
-    let isEnglish = true; // Default language
+    function typeWriter() {
+        const currentWord = currentLanguageWords[wordIndex];
+        let displayedText = currentWord.substring(0, charIndex);
+        animatedTypingWord.textContent = displayedText;
 
-    function setLanguage(lang) {
-        elementsToTranslate.forEach(element => {
-            if (lang === 'en') {
-                if (element.dataset.en) {
-                    element.innerHTML = element.dataset.en;
-                }
-                if (element.dataset.enPlaceholder && element.placeholder !== undefined) {
-                    element.placeholder = element.dataset.enPlaceholder;
-                }
-                if (element.dataset.enValue && element.value !== undefined) {
-                    element.value = element.dataset.enValue;
-                }
-                if (element.dataset.enPrefix && element.id === 'base-typing-text-prefix') {
-                    element.textContent = element.dataset.enPrefix;
-                }
-                if (element.dataset.enWord && element.id === 'static-typing-word') {
-                    element.textContent = element.dataset.enWord;
-                }
-            } else { // UZ
-                if (element.dataset.uz) {
-                    element.innerHTML = element.dataset.uz;
-                }
-                if (element.dataset.uzPlaceholder && element.placeholder !== undefined) {
-                    element.placeholder = element.dataset.uzPlaceholder;
-                }
-                if (element.dataset.uzValue && element.value !== undefined) {
-                    element.value = element.dataset.uzValue;
-                }
-                if (element.dataset.uzPrefix && element.id === 'base-typing-text-prefix') {
-                    element.textContent = element.dataset.uzPrefix;
-                }
-                if (element.dataset.uzWord && element.id === 'static-typing-word') {
-                    element.textContent = element.dataset.uzWord;
-                }
-            }
-        });
-
-        // Update active class on button text
-        const langEnBtn = document.getElementById('lang-en-btn');
-        const langUzBtn = document.getElementById('lang-uz-btn');
-
-        if (lang === 'en') {
-            languageToggle.classList.add('active'); // Add active for EN
-            langEnBtn.style.color = 'var(--primary-color)';
-            langUzBtn.style.color = 'var(--text-color)';
+        if (!isDeleting && charIndex < currentWord.length) {
+            charIndex++;
+            typeWriterTimeout = setTimeout(typeWriter, 80);
+        } else if (isDeleting && charIndex > 0) {
+            charIndex--;
+            typeWriterTimeout = setTimeout(typeWriter, 30);
         } else {
-            languageToggle.classList.remove('active'); // Remove active for UZ
-            langEnBtn.style.color = 'var(--text-color)';
-            langUzBtn.style.color = 'var(--primary-color)';
+            isDeleting = !isDeleting;
+            wordIndex = !isDeleting ? (wordIndex + 1) % currentLanguageWords.length : wordIndex;
+            typeWriterTimeout = setTimeout(typeWriter, 700);
         }
     }
 
+    const languageToggle = document.getElementById('language-toggle');
+    const langEnBtn = document.getElementById('lang-en-btn');
+    const langRuBtn = document.getElementById('lang-ru-btn');
+
+    const elementsToTranslate = document.querySelectorAll('[data-en], [data-ru], [data-en-placeholder], [data-ru-placeholder], [data-en-value], [data-ru-value]');
+    
+    let currentLang = localStorage.getItem('portfolioLang') || 'en'; 
+
+    function setLanguage(lang) {
+        clearTimeout(typeWriterTimeout);
+
+        elementsToTranslate.forEach(element => {
+            const dataKey = lang === 'en' ? 'en' : 'ru';
+            const dataPlaceholderKey = lang === 'en' ? 'enPlaceholder' : 'ruPlaceholder';
+            const dataValueKey = lang === 'en' ? 'enValue' : 'ruValue';
+
+            if (element.dataset[dataKey]) {
+                if (element.tagName === 'TITLE') {
+                    document.title = element.dataset[dataKey];
+                } else {
+                    element.innerHTML = element.dataset[dataKey];
+                }
+            }
+            if (element.dataset[dataPlaceholderKey] && element.placeholder !== undefined) {
+                element.placeholder = element.dataset[dataPlaceholderKey];
+            }
+            if (element.dataset[dataValueKey] && element.value !== undefined) {
+                element.value = element.dataset[dataValueKey];
+            }
+        });
+
+        currentLanguageWords = lang === 'en' ? wordsEn : wordsRu;
+        wordIndex = 0;
+        charIndex = 0;
+        isDeleting = false;
+        typeWriter();
+
+        if (lang === 'en') {
+            languageToggle.classList.add('active');
+            langEnBtn.style.color = 'var(--primary-color)';
+            langRuBtn.style.color = 'var(--text-color)';
+        } else {
+            languageToggle.classList.remove('active');
+            langEnBtn.style.color = 'var(--text-color)';
+            langRuBtn.style.color = 'var(--primary-color)';
+        }
+    }
+
+    setLanguage(currentLang);
+
     if (languageToggle) {
         languageToggle.addEventListener('click', () => {
-            isEnglish = !isEnglish;
-            setLanguage(isEnglish ? 'en' : 'uz');
+            currentLang = (currentLang === 'en') ? 'ru' : 'en';
+            localStorage.setItem('portfolioLang', currentLang);
+            setLanguage(currentLang);
         });
     }
 
-    // Set initial language
-    setLanguage('en'); // Set to English by default on load
+    const customCursorCircle = document.querySelector('.custom-cursor-circle');
+    const customCursorDot = document.querySelector('.custom-cursor-dot');
+
+    let mouseX = 0, mouseY = 0;
+    let circleX = 0, circleY = 0;
+    const easeFactor = 0.08;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        customCursorDot.style.left = mouseX + 'px';
+        customCursorDot.style.top = mouseY + 'px';
+    });
+
+    function animateCursor() {
+        circleX += (mouseX - circleX) * easeFactor;
+        circleY += (mouseY - circleY) * easeFactor;
+
+        customCursorCircle.style.left = circleX + 'px';
+        customCursorCircle.style.top = circleY + 'px';
+
+        requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
+
+    document.querySelectorAll('a, button, input[type="submit"]').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            customCursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            customCursorCircle.style.borderColor = 'transparent';
+            customCursorCircle.style.backgroundColor = 'rgba(247, 135, 0, 0.2)';
+        });
+        el.addEventListener('mouseleave', () => {
+            customCursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+            customCursorCircle.style.borderColor = 'var(--primary-color)';
+            customCursorCircle.style.backgroundColor = 'transparent';
+        });
+    });
 });
