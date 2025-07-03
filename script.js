@@ -1,19 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuIcon = document.getElementById('menu-icon');
     const navbar = document.getElementById('navbar');
+    const navCloseIcon = document.getElementById('nav-close-icon');
 
-    if (menuIcon && navbar) {
+    if (menuIcon && navbar && navCloseIcon) {
         menuIcon.addEventListener('click', () => {
-            navbar.classList.toggle('active');
-            menuIcon.querySelector('i').classList.toggle('fa-bars');
-            menuIcon.querySelector('i').classList.toggle('fa-times');
+            navbar.classList.add('active');
+            menuIcon.style.display = 'none';
+        });
+
+        navCloseIcon.addEventListener('click', () => {
+            navbar.classList.remove('active');
+            menuIcon.style.display = 'block';
         });
 
         navbar.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navbar.classList.remove('active');
-                menuIcon.querySelector('i').classList.add('fa-bars');
-                menuIcon.querySelector('i').classList.remove('fa-times');
+                menuIcon.style.display = 'block';
             });
         });
     }
