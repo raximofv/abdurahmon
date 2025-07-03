@@ -1,17 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap'); /* Kod shrifti */
 
-/* ==================== 1. Variables ==================== */
 :root {
-    --primary-color: #00bcd4; /* Asosiy ko'k-yashil rang */
-    --background-color: #1a1a2e; /* To'q ko'k fon rangi */
-    --text-color: #ffffff; /* Oq rangdagi matn */
-    --light-text-color: #cccccc; /* Ikkinchi darajali matnlar uchun ochiqroq rang */
-    --hover-color: #00e5ff; /* Hover effektlari uchun ochroq ko'k-yashil */
-    --shadow-color: rgba(0, 188, 212, 0.4); /* Soyalar uchun asosiy rangning shaffof versiyasi */
+    --primary-color: #f78700;
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --light-text-color: #666666;
+    --hover-color: #ff9933;
+    --shadow-color: rgba(247, 135, 0, 0.4);
 }
 
-/* ==================== 2. Base Styles ==================== */
 * {
     margin: 0;
     padding: 0;
@@ -19,11 +17,12 @@
     text-decoration: none;
     border: none;
     outline: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    cursor: none;
 }
 
 html {
-    font-size: 62.5%; /* 1rem = 10px */
+    font-size: 62.5%;
     scroll-behavior: smooth;
 }
 
@@ -32,83 +31,54 @@ body {
     overflow-x: hidden;
     color: var(--text-color);
     background-color: var(--background-color);
-    position: relative; /* Fon elementlari uchun kerak */
-    z-index: 1; /* Kontent fonning ustida bo'lishi uchun */
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.8s ease-in-out;
 }
 
-/* Matrix uslubidagi fonni yaratish */
-body::before {
-    content: '';
+.custom-cursor-circle {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Kontent ostida bo'lishi uchun */
-    pointer-events: none; /* Har qanday sichqoncha hodisasini o'tkazib yuborish */
-    overflow: hidden; /* Kontentni tashqariga chiqarmaslik */
-
-    /* Yanada ko'proq 0 va 1 lardan iborat zichroq SVG tasviri */
-    background-image: url("data:image/svg+xml,%3Csvg width='150' height='200' viewBox='0 0 150 200' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Column 1 --%3E%3Ctext x='10' y='20' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='10' y='45' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='10' y='70' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='10' y='95' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='10' y='120' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='10' y='145' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='10' y='170' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='10' y='195' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3C!-- Column 2 (slightly offset) --%3E%3Ctext x='40' y='10' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='40' y='35' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='40' y='60' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='40' y='85' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='40' y='110' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='40' y='135' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='40' y='160' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='40' y='185' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3C!-- Column 3 --%3E%3Ctext x='70' y='20' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='70' y='45' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='70' y='70' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='70' y='95' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='70' y='120' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='70' y='145' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='70' y='170' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='70' y='195' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3C!-- Column 4 (slightly offset) --%3E%3Ctext x='100' y='10' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='100' y='35' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='100' y='60' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='100' y='85' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='100' y='110' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='100' y='135' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='100' y='160' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='100' y='185' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3C!-- Column 5 --%3E%3Ctext x='130' y='20' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='130' y='45' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='130' y='70' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='130' y='95' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='130' y='120' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='130' y='145' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3Ctext x='130' y='170' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E0%3C/text%3E%3Ctext x='130' y='195' font-family='Fira Code, monospace' font-size='20' fill='rgba(0, 188, 212, 0.1)'%3E1%3C/text%3E%3C/svg%3E");
-    background-size: 150px 200px; /* SVG naqshining hajmini saqlaymiz */
-    animation: matrix-scroll 15s linear infinite; /* Animatsiya tezligi yanada tezlashdi */
-    opacity: 0.1; /* Juda kam ko'rinishi uchun shaffoflikni kamaytirdik */
-}
-
-@keyframes matrix-scroll {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 0 200px; /* SVG balandligi bo'yicha siljish */
-    }
-}
-
-/* Matrix uslubidagi fonning ustiga chiqadigan yorug'lik chiziqlari - yanada kamroq ko'rinadigan */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Kontent ostida bo'lishi uchun */
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
     pointer-events: none;
-    background: linear-gradient(to bottom,
-        rgba(0, 188, 212, 0.05) 0%, /* Shaffoflikni juda kamaytirdik */
-        rgba(0, 188, 212, 0.02) 20%,
-        transparent 50%,
-        rgba(0, 188, 212, 0.02) 80%,
-        rgba(0, 188, 212, 0.05) 100%
-    );
-    animation: matrix-fade 6s ease-in-out infinite alternate; /* O'chib-yonish animatsiyasi yanada tezlashdi */
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
 
-@keyframes matrix-fade {
-    0% { opacity: 0.05; }
-    50% { opacity: 0.1; } /* Eng yuqori shaffoflikni kamaytirdik */
-    100% { opacity: 0.05; }
+.custom-cursor-dot {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out, background-color 0.2s ease-out;
+    z-index: 10000;
 }
 
+body::before,
+body::after {
+    content: none;
+}
 
-/* Rasmlar uchun umumiy mobil moslashuvchanlik qoidasi */
 img {
-    max-width: 100%; /* Rasmlarning maksimal kengligini ota-ona elementiga moslashtiradi */
-    height: auto; /* Rasmlar nisbatlarini saqlab qoladi */
-    display: block; /* Ba'zi to'ldiruvchi bo'shliqlarni olib tashlash uchun */
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-
-/* reusable classes */
 .heading {
     font-size: 4rem;
     text-align: center;
-    margin-bottom: 3rem; /* Sarlavhalarning pastki qismidagi margin */
+    margin-bottom: 3rem;
     color: var(--text-color);
-    padding-top: 2rem; /* Sarlavhalarning o'zini yuqoriroqqa surish uchun padding berildi */
+    padding-top: 2rem;
 }
 
-.primary-color-span { /* Sarlavhalardagi rangli qism uchun */
+.primary-color-span {
     color: var(--primary-color);
 }
 
@@ -133,7 +103,6 @@ img {
     box-shadow: 0 0 25px var(--primary-color);
 }
 
-/* ==================== 3. Header & Navigation ==================== */
 header {
     margin-top: 20px;
     position: fixed;
@@ -141,28 +110,27 @@ header {
     left: 0;
     width: 100%;
     padding: 1rem 9%;
-    background-color: transparent; /* Asosiy header foni butunlay olib tashlandi (desktop va mobil) */
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: background-color 0.5s ease;
 }
 
-/* Logo */
 .logo-img.custom-logo img {
     height: 10rem;
     width: auto;
     object-fit: contain;
     transition: 0.5s ease;
     border-radius: 0.5rem;
-    filter: none;
+    filter: sepia(100%) saturate(2000%) hue-rotate(340deg) brightness(100%) contrast(100%);
 }
 
 .logo-img.custom-logo img:hover {
     transform: scale(1.1);
 }
 
-/* Navigation Links */
 nav a {
     font-size: 1.8rem;
     color: var(--text-color);
@@ -172,6 +140,7 @@ nav a {
     border-bottom: 3px solid transparent;
     text-shadow: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 nav a:hover,
@@ -182,15 +151,16 @@ nav a.active {
     background-color: transparent;
 }
 
-/* Language Switch */
-.lang-switch-container {
-    margin-left: 2rem;
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .language-button {
-    background-color: var(--background-color); /* Fon rangi bilan bir xil */
+    background-color: var(--background-color);
     border: 2px solid var(--primary-color);
-    border-radius: 2.5rem; /* Pill shape */
+    border-radius: 2.5rem;
     padding: 0.8rem 1.5rem;
     cursor: pointer;
     display: flex;
@@ -214,14 +184,13 @@ nav a.active {
     font-weight: bold;
 }
 
-/* Visual feedback for active language */
 .language-button.active .lang-text#lang-en-btn {
     color: var(--primary-color);
 }
-.language-button:not(.active) .lang-text#lang-uz-btn {
+.language-button:not(.active) .lang-text#lang-ru-btn {
     color: var(--primary-color);
 }
-.language-button.active .lang-text#lang-uz-btn {
+.language-button.active .lang-text#lang-ru-btn {
     color: var(--text-color);
 }
 .language-button:not(.active) .lang-text#lang-en-btn {
@@ -239,7 +208,6 @@ nav a.active {
     color: var(--background-color);
 }
 
-/* Mobile Menu Icon */
 .menu-icon {
     font-size: 3rem;
     color: var(--text-color);
@@ -247,18 +215,16 @@ nav a.active {
     display: none;
 }
 
-/* ==================== 4. Sections Layout ==================== */
 section {
-    min-height: auto; /* Kontentga moslashadi */
-    padding: 10rem 9% 8rem; /* Yuqori va pastki padding kattalashtirildi */
+    min-height: auto;
+    padding: 10rem 9% 8rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: transparent; /* Sectionlarning o'z foni shaffof, asosiy body foni ko'rinadi */
+    background-color: transparent;
 }
 
-/* ==================== 5. Home Section ==================== */
 .home {
     display: flex;
     justify-content: center;
@@ -266,8 +232,8 @@ section {
     gap: 8rem;
     flex-wrap: wrap;
     text-align: left;
-    padding-top: 14rem; /* Header ostidan boshlash uchun */
-    padding-bottom: 7rem; /* Keyingi bo'lim bilan bo'sh joy qoldirish uchun */
+    padding-top: 14rem;
+    padding-bottom: 7rem;
 }
 
 .home .home-content {
@@ -277,69 +243,47 @@ section {
 
 .home .home-content h1 {
     font-size: 6rem;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.3;
     color: var(--text-color);
 }
 
-.home-content h3 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-    color: var(--text-color);
-}
-
-#static-typing-word {
-    color: var(--primary-color);
-}
-
-/* Cursor for static typing text */
-.typing-text-static {
-    font-size: 3.4rem;
+.typing-text-animated-container {
+    font-size: 3.2rem;
     font-weight: 600;
-    min-width: 20rem;
+    min-width: 35rem;
+    min-height: 4rem;
     text-align: left;
     margin: 0 0 1rem 0;
     white-space: nowrap;
     overflow: hidden;
     position: relative;
     display: inline-block;
-    color: var(--text-color);
+    color: var(--primary-color);
 }
 
-#static-typing-word::after {
-    content: "";
-    background-color: var(--background-color);
-    position: absolute;
-    width: 3px;
-    height: 100%;
-    border-left: 3px solid var(--primary-color);
-    right: -3px;
-    animation: cursor 0.6s infinite;
-    top: 0;
-}
-
-@keyframes cursor {
-    0%, 100% { border-color: transparent; }
-    50% { border-color: var(--primary-color); }
+.typing-text-animated::after,
+.typing-text-animated::before {
+    content: none;
 }
 
 .home-content p {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 400;
     max-width: 800px;
     margin-left: 0;
     margin-right: auto;
     color: var(--light-text-color);
+    line-height: 1.6;
 }
 
 .home-content .about-me-text {
     margin-top: 1.5rem;
     margin-bottom: 2.5rem;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     line-height: 1.7;
 }
 
-/* Social Icons */
 .social-icons {
     margin: 3rem 0;
     text-align: left;
@@ -358,6 +302,7 @@ section {
     margin: 0 0.75rem 0 0;
     transition: 0.3s ease;
     color: var(--primary-color);
+    cursor: pointer;
 }
 
 .social-icons a:hover {
@@ -367,7 +312,6 @@ section {
     box-shadow: 0 0 25px var(--primary-color);
 }
 
-/* ==================== 6. Projects Section ==================== */
 .projects-container {
     display: flex;
     justify-content: center;
@@ -378,7 +322,7 @@ section {
 
 .projects-container .project-box {
     flex: 1 1 30rem;
-    background-color: var(--background-color); /* Fon rangi bilan bir xil */
+    background-color: var(--background-color);
     padding: 3rem 2rem 4rem;
     border-radius: 1.5rem;
     text-align: center;
@@ -396,7 +340,7 @@ section {
 
 .project-box img {
     width: 100%;
-    height: 20rem; /* Barcha rasmlar uchun bir xil balandlik */
+    height: 20rem;
     object-fit: cover;
     border-radius: 1rem;
     margin-bottom: 1.5rem;
@@ -420,7 +364,6 @@ section {
     color: var(--light-text-color);
 }
 
-/* ==================== 7. Skills Section ==================== */
 .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -429,7 +372,7 @@ section {
 }
 
 .skill-category {
-    background-color: var(--background-color); /* Fon rangi bilan bir xil */
+    background-color: var(--background-color);
     border: 0.2rem solid var(--primary-color);
     border-radius: 1.5rem;
     padding: 3rem;
@@ -471,8 +414,9 @@ section {
     border-radius: 0.8rem;
     display: inline-block;
     color: var(--light-text-color);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: default;
 }
 
 .skill-item:hover {
@@ -481,7 +425,6 @@ section {
     cursor: default;
 }
 
-/* ==================== 8. Education Section ==================== */
 .education-container {
     display: flex;
     flex-wrap: wrap;
@@ -532,7 +475,6 @@ section {
     color: var(--light-text-color);
 }
 
-/* ==================== 9. Contact Section ==================== */
 .contact form {
     max-width: 70rem;
     margin: 0 auto;
@@ -555,7 +497,8 @@ section {
     border-radius: 0.8rem;
     margin: 0.7rem 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: text;
 }
 
 .contact form .input-box input {
@@ -582,7 +525,6 @@ section {
     box-shadow: 0 0 25px var(--primary-color);
 }
 
-/* ==================== 10. Footer ==================== */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -590,7 +532,7 @@ section {
     flex-wrap: wrap;
     padding: 2rem 9%;
     background-color: var(--background-color);
-    border-top: 0.1rem solid rgba(255,255,255,0.1);
+    border-top: 0.1rem solid rgba(0,0,0,0.1);
 }
 
 .footer-text p {
@@ -606,6 +548,7 @@ section {
     background-color: var(--primary-color);
     border-radius: 0.8rem;
     transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .footer-icon-top a i {
@@ -618,7 +561,6 @@ section {
     transform: translateY(-5px);
 }
 
-/* ==================== 11. Responsive Design ==================== */
 @media (max-width: 995px) {
     header {
         justify-content: space-between;
@@ -636,7 +578,7 @@ section {
         right: 0;
         width: 100%;
         background-color: transparent;
-        border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
         border-bottom-left-radius: 2rem;
         border-bottom-right-radius: 2rem;
         padding: 2rem 0;
@@ -670,6 +612,15 @@ section {
         margin-left: auto;
         margin-right: 1.5rem;
     }
+
+    .custom-cursor-circle,
+    .custom-cursor-dot {
+        display: none;
+    }
+
+    * {
+        cursor: auto !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -681,8 +632,8 @@ section {
         flex-direction: column;
         text-align: center;
         gap: 3rem;
-        padding-top: 10rem; /* Mobil qurilmalar uchun home padding-top */
-        padding-bottom: 5rem; /* Mobil qurilmalar uchun home padding-bottom */
+        padding-top: 10rem;
+        padding-bottom: 5rem;
     }
 
     .home .home-content {
@@ -697,13 +648,7 @@ section {
         text-align: center;
     }
 
-    .social-icons {
-        text-align: center;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    .typing-text-static {
+    .typing-text-animated-container {
         text-align: center;
         width: 100%;
         margin-left: auto;
@@ -720,17 +665,6 @@ section {
     .contact form .input-box input {
         width: 100%;
     }
-
-    /* Mobil qurilmalarda fon effektini o'chirish yoki kamaytirish */
-    body::before {
-        opacity: 0.05; /* Mobil qurilmalarda fon shaffofligini juda kamaytirish */
-        background-size: 100px 150px; /* Mobil qurilmalarda fon hajmini kichraytirish */
-        animation-duration: 30s; /* Mobil qurilmalarda animatsiya tezligini o'zgartirish */
-    }
-
-    body::after {
-        content: none; /* Mobil qurilmalarda yorug'lik effektini o'chirish */
-    }
 }
 
 @media (max-width: 450px) {
@@ -744,11 +678,5 @@ section {
 
     .contact form .btn {
         width: 100%;
-    }
-
-    body::before {
-        opacity: 0.02; /* Juda kichik ekranlarda fon shaffofligini yanada kamaytirish */
-        background-size: 70px 100px; /* Juda kichik ekranlarda fon hajmini kichraytirish */
-        animation-duration: 40s; /* Juda kichik ekranlarda animatsiya tezligini o'zgartirish */
     }
 }
