@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('mouseenter', () => {
             customCursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
             customCursorCircle.style.borderColor = 'transparent';
-            customCursorCircle.style.backgroundColor = 'rgba(247, 135, 0, 0.2)';
+            customCursorCircle.style.backgroundColor = 'rgba(233, 156, 1, 0.2)';
         });
         el.addEventListener('mouseleave', () => {
             customCursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
