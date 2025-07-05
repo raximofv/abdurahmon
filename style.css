@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
 :root {
-    --primary-color: #f78700;
+    --primary-color: rgb(233, 156, 1);
     --background-color: #FFFFFF;
     --text-color: #333333;
     --light-text-color: #666666;
-    --hover-color: #ff9933;
-    --shadow-color: rgba(247, 135, 0, 0.4);
+    --hover-color: rgb(240, 165, 10);
+    --shadow-color: rgba(233, 156, 1, 0.4);
 }
 
 * {
@@ -123,7 +123,6 @@ header {
     object-fit: contain;
     transition: 0.5s ease;
     border-radius: 0.5rem;
-    filter: sepia(100%) saturate(2000%) hue-rotate(340deg) brightness(100%) contrast(100%);
 }
 
 .logo-img.custom-logo img:hover {
@@ -192,6 +191,21 @@ nav a.active {
 }
 .language-button:not(.active) .lang-text#lang-en-btn {
     color: var(--text-color);
+}
+
+.language-button:active .lang-text#lang-en-btn,
+.language-button:active .lang-text#lang-ru-btn {
+    color: var(--background-color) !important;
+}
+
+.language-button:active {
+    background-color: var(--primary-color) !important;
+    color: var(--background-color) !important;
+    box-shadow: 0 0 20px var(--primary-color) !important;
+}
+
+.language-button:active .divider {
+    color: var(--background-color) !important;
 }
 
 .language-button:hover {
@@ -323,7 +337,7 @@ section {
     padding: 3rem 2rem 4rem;
     border-radius: 1.5rem;
     text-align: center;
-    border: 0.2rem solid var(--primary-color);
+    border: none;
     transition: 0.3s ease;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -341,11 +355,15 @@ section {
     object-fit: cover;
     border-radius: 1rem;
     margin-bottom: 1.5rem;
-    transition: transform 0.3s ease;
+    transition: all 0.5s ease;
+    transform: scale(0.95);
+    opacity: 0.9;
 }
 
 .project-box:hover img {
-    transform: scale(1.05);
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project-box h3 {
@@ -359,6 +377,31 @@ section {
     margin-bottom: 2rem;
     line-height: 1.6;
     color: var(--light-text-color);
+}
+
+.project-tech-tags-container {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.project-tech-tag {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.2rem;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: default;
+}
+
+.project-tech-tag:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
 }
 
 .skills-container {
@@ -559,9 +602,10 @@ footer .footer-icon-top a:hover {
 }
 
 .nav-close-icon {
-    display: none; /* Default hidden for desktop */
+    display: none;
 }
 
+/* Mobile menu styles */
 @media (max-width: 995px) {
     header {
         justify-content: space-between;
@@ -571,32 +615,31 @@ footer .footer-icon-top a:hover {
 
     .menu-icon {
         display: block;
+        z-index: 1000;
     }
 
     nav {
         position: fixed;
         top: 0;
-        right: 0;
+        right: -100%;
         width: 70%;
         height: 100vh;
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 0.95);
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
-        transform: translateX(100%);
-        transition: transform 0.4s ease-out;
-        border-radius: 0;
+        transition: right 0.4s ease-out;
         padding: 2rem 0;
         display: flex;
-        z-index: 99;
+        z-index: 999;
     }
 
     nav.active {
-        transform: translateX(0%);
+        right: 0;
     }
 
     .nav-close-icon {
-        display: block; /* Show only on mobile */
+        display: block;
         font-size: 3rem;
         color: var(--text-color);
         position: absolute;
@@ -612,18 +655,17 @@ footer .footer-icon-top a:hover {
 
     nav a {
         margin: 1.5rem 0;
-        width: 100%;
-        padding: 1rem 0;
-        border-bottom: none;
+        width: 80%;
+        padding: 1.5rem 0;
         text-align: center;
-        transition: all 0.3s ease;
+        font-size: 2rem;
+        border-bottom: none;
     }
 
     nav a:hover,
     nav a.active {
-        background-color: rgba(0, 0, 0, 0.05);
+        background-color: rgba(233, 156, 1, 0.1);
         border-radius: 0.5rem;
-        border-bottom: none;
     }
 
     .lang-switch-container {
@@ -638,6 +680,23 @@ footer .footer-icon-top a:hover {
 
     * {
         cursor: auto !important;
+    }
+}
+
+/* Desktop styles - hide menu icon */
+@media (min-width: 996px) {
+    .menu-icon {
+        display: none !important;
+    }
+    
+    nav {
+        display: flex !important;
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        flex-direction: row;
+        transform: none !important;
     }
 }
 
@@ -705,5 +764,9 @@ footer .footer-icon-top a:hover {
 
     .contact form .btn {
         width: 100%;
+    }
+
+    nav {
+        width: 80%;
     }
 }
